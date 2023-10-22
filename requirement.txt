@@ -2,5 +2,5 @@ The Various Packages Used and only the react library was used
 
 react@18.2.0
 react-dom@18.2.0
-react-error-boundary@4.0.11
-react-router-dom@6.4
+react-error-boundary@4.0.11 Allowed me to catch errors anywhere in their child component tree and display a fallback UI instead of the component tree that crashed.
+react-router-dom@6.4  which allowed me to display pages and to navigate them
