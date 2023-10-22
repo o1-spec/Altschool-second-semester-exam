@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Homepage () {
     return(
-    <div>
+    <div data-aos="fade-up">
         <div>
          <nav>
           <ul>

@@ -14,7 +14,7 @@ function CounterApp() {
 
   //CounterApp Actions for both increment and decrement
   return (
-   <div className='main-container'>
+   <div data-aos="fade-up" className='main-container'>
     <div className='container'>
       <p>Count: {count}</p>
      <div className='buttons'>

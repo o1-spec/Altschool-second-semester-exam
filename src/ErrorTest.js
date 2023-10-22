@@ -11,7 +11,7 @@ function ErrorTest() {
 
   //Clicked before error boundary page
   return (
-    <div className='error-div'>
+    <div data-aos="fade-up" className='error-div'>
       <h1 className='error-boundary'>Error Boundary Test</h1>
       <button className='Error-button' onClick={handleTestButtonClick}>Test Error</button>
     </div>
