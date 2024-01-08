@@ -39,7 +39,7 @@ function CounterApp({ theme, toggleTheme }) {
             Set Custom Value
           </button>
         </div>
-        <button className="back">
+        <button className="back back-homepage">
           <Link to="/">Homepage</Link>
         </button>
       </div>

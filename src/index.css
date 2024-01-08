@@ -236,10 +236,10 @@ ul li a{
     row-gap: 25px;
   }
 
-  /*
-  .back{
+  
+  .back-homepage{
     transform: translateX(31vw);
-  }*/
+  }
 
   .error-success{
     font-size: 45px;
