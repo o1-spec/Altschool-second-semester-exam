@@ -14,10 +14,19 @@ import ErrorBoundarySuccess from "./ErrorBoundarySuccess";
 export const ThemeContext = createContext(null);
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
 
   const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+    setTheme((currentTheme) => {
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+      // Store the updated theme preference in local storage
+      localStorage.setItem('theme', newTheme);
+
+      return newTheme;
+    })
   };
 
   useEffect(() => {
