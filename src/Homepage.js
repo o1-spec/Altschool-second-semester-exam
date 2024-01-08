@@ -1,30 +1,32 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import ThemeButton from "./ThemeButton";
 
-function Homepage () {
-    return(
+function Homepage({ theme, toggleTheme }) {
+  return (
     <div data-aos="fade-up">
-        <div>
-         <nav>
+      <div>
+        <ThemeButton theme={theme} toggleTheme={toggleTheme}/>
+        <nav>
           <ul>
             <li>
               {/* CounterApp */}
               <Link to="/counter">CounterApp</Link>
             </li>
             {/* 404 Page */}
-            <li className='page'>
+            <li className="page">
               <Link to="*">404 Page</Link>
             </li>
             {/* Error Boundary */}
-            <li className='error-link'>
+            <li className="error-link">
               <Link to="/error">Error Boundary</Link>
             </li>
           </ul>
-         </nav>
-        </div>
-            <h1 className="homepage">Altschool Second Semester Exam!!!!</h1>
-     </div>
-    );
+        </nav>
+      </div>
+      <h1 className="homepage">Altschool Second Semester Exam!!!!</h1>
+    </div>
+  );
 }
 
 export default Homepage;

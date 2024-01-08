@@ -1,18 +1,16 @@
-body {
+*{
   margin: 0;
-  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;*/
-    font-family: 'Sometype Mono', monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #000;
-  color: #fff;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html{
+  height: 100vh;
+}
+
+body{
+  height: 100%;
+  font-family: 'Sometype Mono', monospace;
 }
 
 .container{
@@ -33,6 +31,55 @@ code {
   font-size: 24px;
 }
 
+#dark{
+  background-color: #000;
+  color: #fff;
+  height: 100vh;
+}
+
+#light{
+  background-color: #fff;
+  color: #111517;
+  height: 100vh;
+}
+
+.dark-button{
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+#light .back{
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+#light .back a{
+  color: #000;
+}
+
+#light .Error-button{
+  background-color: #fff;
+  border: 2px solid #000;
+  color: #000;
+}
+
+#light .decrement,#light .increment,#light .reset, #light .setvalue ,#light input{
+  background-color: #fff;
+  border: 2px solid #000;
+  color: #000;
+}
+
+#light ul li a{
+  color: #000;
+}
+
+.dark-button img{
+  width: 1.5rem;
+}
+
 .increment,.decrement,.reset,.setvalue,.back,.back-counter{
   background-color: #000;
   color: #fff;
@@ -44,7 +91,7 @@ code {
 }
 
 .back{
-  transform: translateX(45vw);
+  margin-top: 1rem;
   padding: 8px 16px;
 }
 
@@ -150,7 +197,7 @@ ul li a{
 
 @media(max-width: 700px){
   ul{
-    padding: 60px 32px ;
+    padding: 30px 32px ;
     padding-bottom: 40px;
   }
 }
@@ -160,6 +207,10 @@ ul li a{
     border: none;
     margin-top: 30%;
     margin-bottom: 40px;
+  }
+
+  .homepage{
+    padding-top: 30px;
   }
 
   .success-container{
@@ -185,9 +236,10 @@ ul li a{
     row-gap: 25px;
   }
 
+  /*
   .back{
     transform: translateX(31vw);
-  }
+  }*/
 
   .error-success{
     font-size: 45px;

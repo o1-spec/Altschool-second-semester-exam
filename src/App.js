@@ -1,30 +1,57 @@
 ///import logo from './logo.svg';
-import './App.css';
-import React from 'react';
-import 'aos/dist/aos.css';
-import Aos from 'aos';
-import { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Homepage from './Homepage';
-import ErrorTest from './ErrorTest';
-import CounterApp from './counterlogic/counterapp';
-import Error from './error';
-import ErrorBoundarySuccess from './ErrorBoundarySuccess'; 
+import "./App.css";
+import React from "react";
+import "aos/dist/aos.css";
+import Aos from "aos";
+import { useEffect, useState, createContext } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "./Homepage";
+import ErrorTest from "./ErrorTest";
+import CounterApp from "./counterlogic/counterapp";
+import Error from "./error";
+import ErrorBoundarySuccess from "./ErrorBoundarySuccess";
+
+export const ThemeContext = createContext(null);
 
 function App() {
-  useEffect(()=> {
-    Aos.init({duration: 2500})
-  }, [])
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  };
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" exact element={<Homepage />}/>
-        <Route path="/counter" element={<CounterApp />} />
-        <Route path="error" element={<ErrorTest />} />
-        <Route path="/error-success" element={<ErrorBoundarySuccess />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="App" id={theme}>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              exact
+              element={<Homepage theme={theme} toggleTheme={toggleTheme} />}
+            />
+            <Route
+              path="/counter"
+              element={<CounterApp theme={theme} toggleTheme={toggleTheme} />}
+            />
+            <Route
+              path="error"
+              element={<ErrorTest theme={theme} toggleTheme={toggleTheme} />}
+            />
+            <Route
+              path="/error-success"
+              element={
+                <ErrorBoundarySuccess theme={theme} toggleTheme={toggleTheme} />
+              }
+            />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeContext.Provider>
+    </div>
   );
 }
 export default App;
